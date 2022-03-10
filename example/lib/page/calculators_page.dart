@@ -1,3 +1,4 @@
+import 'package:example/res/colors.dart';
 import 'package:example/res/gaps.dart';
 import 'package:flutter/material.dart';
 import 'package:neumorphism_decoration/neumorphism_decoration.dart';
@@ -38,6 +39,9 @@ class _CalculatorsState extends State<CalculatorsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colours.backgroundColor,
+        foregroundColor: Colours.textDeep,
         title: const Text('计算器'),
       ),
       body: _btnHeight == 0

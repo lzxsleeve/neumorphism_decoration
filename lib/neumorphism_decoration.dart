@@ -31,15 +31,6 @@ class _NeumorphismDecorationState extends State<NeumorphismDecoration> with Sing
   AnimationController? _aController;
   Animation<double>? _animation;
 
-  void _onPointerDown(PointerDownEvent event) {
-    _aController?.forward();
-  }
-
-  void _onPointerUp(PointerUpEvent event) {
-    _aController?.reverse();
-    widget.onTap?.call();
-  }
-
   @override
   void initState() {
     super.initState();
@@ -57,9 +48,11 @@ class _NeumorphismDecorationState extends State<NeumorphismDecoration> with Sing
   @override
   Widget build(BuildContext context) {
     Color color = widget.neumorphismColors.backgroundColor ?? Theme.of(context).scaffoldBackgroundColor;
-    return Listener(
-      onPointerDown: _onPointerDown,
-      onPointerUp: _onPointerUp,
+    return GestureDetector(
+      onTap: widget.onTap,
+      onTapDown: (event) => _aController?.forward(),
+      onTapUp: (event) => _aController?.reverse(),
+      onTapCancel: () => _aController?.reverse(),
       child: CustomPaint(
         painter: NeumorphismPainter(
           color: color,
@@ -219,7 +212,7 @@ class NeumorphismPainter extends CustomPainter {
   }
 }
 
-/// 由于要适配所有背景色太困难，所以开放给非默认背景色的颜色配置
+/// 由于要适配所有背景色太困难，所以增加颜色配置
 class NeumorphismColors {
   /// 背景颜色
   final Color? backgroundColor;

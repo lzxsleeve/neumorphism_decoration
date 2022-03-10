@@ -1,4 +1,6 @@
 import 'package:example/page/calculators_page.dart';
+import 'package:example/page/simple_example_page.dart';
+import 'package:example/res/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:neumorphism_decoration/neumorphism_decoration.dart';
 
@@ -18,7 +20,10 @@ class _HomeState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Demo Home Page'),
+        elevation: 0,
+        backgroundColor: Colours.backgroundColor,
+        foregroundColor: Colours.textDeep,
+        title: const Text('Flutter Demo'),
       ),
       body: Column(
         children: [
@@ -31,7 +36,7 @@ class _HomeState extends State<HomePage> {
                 child: const Text('测试', style: TextStyle(fontSize: 16)),
               ),
               onTap: () {
-                print('测试');
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const SimpleExamplePage()));
               },
             ),
           ),

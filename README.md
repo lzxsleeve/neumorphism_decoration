@@ -1,3 +1,6 @@
+# 新拟态装饰
+
+
 ## 安装
 在`pubspec.yaml` 文件中添加`neumorphism_decoration`依赖:
 
@@ -5,6 +8,7 @@
 dependencies:
   neumorphism_decoration: ^${latestVersion}
 ```
+
 
 ## 使用
 ```dart
@@ -15,6 +19,7 @@ NeumorphismDecoration(
     ),
 )
 ```
+
 
 ## 特性
 
@@ -28,6 +33,7 @@ NeumorphismDecoration(
 |       bevel       |         double          | optional |              视觉上凸起的高度                |
 |       style       |    NeumorphismStyle     | optional |     设置样式，包含自动、固定凸起和固定凹陷      |
 |       onTap       |        Function         | optional |                  点击事件                   |
+
 
 ## 截图
 
